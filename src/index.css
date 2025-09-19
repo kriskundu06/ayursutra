@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ayurveda-inspired design system with earthy, healing colors */
+
+@layer base {
+  :root {
+    /* Core Ayurveda palette */
+    --background: 45 15% 97%;
+    --foreground: 120 25% 15%;
+
+    --card: 45 25% 98%;
+    --card-foreground: 120 25% 15%;
+
+    --popover: 45 25% 98%;
+    --popover-foreground: 120 25% 15%;
+
+    /* Teal primary - representing nature and healing */
+    --primary: 174 95% 33%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 75% 45%;
+
+    /* Warm beige secondary */
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 120 25% 15%;
+
+    /* Soft earth tones */
+    --muted: 35 20% 92%;
+    --muted-foreground: 120 15% 40%;
+
+    /* Golden accent */
+    --accent: 45 80% 75%;
+    --accent-foreground: 120 25% 15%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 25% 98%;
+
+    --border: 35 15% 85%;
+    --input: 35 15% 90%;
+    --ring: 120 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Ayurveda-specific gradients */
+    --gradient-healing: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)));
+    --gradient-calm: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows with natural feel */
+    --shadow-gentle: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-warm: 0 8px 30px -8px hsl(var(--accent) / 0.25);
+
+    /* Smooth transitions */
+    --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with deep forest and warm earth tones */
+    --background: 120 15% 8%;
+    --foreground: 45 25% 95%;
+
+    --card: 120 15% 10%;
+    --card-foreground: 45 25% 95%;
+
+    --popover: 120 15% 10%;
+    --popover-foreground: 45 25% 95%;
+
+    --primary: 174 75% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 65% 65%;
+
+    --secondary: 120 10% 18%;
+    --secondary-foreground: 45 25% 95%;
+
+    --muted: 120 8% 15%;
+    --muted-foreground: 45 15% 70%;
+
+    --accent: 45 60% 65%;
+    --accent-foreground: 120 15% 8%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 45 25% 95%;
+
+    --border: 120 8% 20%;
+    --input: 120 8% 20%;
+    --ring: 120 50% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Gentle scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer components {
+  .gradient-healing {
+    background: var(--gradient-healing);
+  }
+
+  .gradient-earth {
+    background: var(--gradient-earth);
+  }
+
+  .gradient-calm {
+    background: var(--gradient-calm);
+  }
+
+  .shadow-gentle {
+    box-shadow: var(--shadow-gentle);
+  }
+
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .transition-gentle {
+    transition: var(--transition-gentle);
+  }
+
+  /* React Big Calendar custom styles */
+  .ayurveda-calendar .rbc-calendar {
+    font-family: inherit;
+  }
+  
+  .ayurveda-calendar .rbc-header {
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    padding: 0.75rem;
+    font-weight: 600;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  
+  .ayurveda-calendar .rbc-time-view .rbc-time-gutter {
+    background: hsl(var(--background));
+    border-right: 1px solid hsl(var(--border));
+  }
+  
+  .ayurveda-calendar .rbc-time-slot {
+    border-top: 1px solid hsl(var(--border));
+  }
+  
+  .ayurveda-calendar .rbc-today {
+    background: hsl(var(--accent) / 0.1);
+  }
+  
+  .ayurveda-calendar .rbc-current-time-indicator {
+    background-color: hsl(var(--primary));
+    height: 2px;
+  }
+  
+  .ayurveda-calendar .rbc-slot-selection {
+    background: hsl(var(--primary) / 0.2);
+    border: 2px solid hsl(var(--primary));
+  }
+}
